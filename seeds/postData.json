@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Blog Post Title 1",
+    "description": "Cool subheading here",
+    "body": "Here is the body of my cool blog post. ",
+    "author": "Sal the Arbitratium"
+    
+  },
+  {
+    "title": "Blog Post Title 2",
+    "description": "2 Cool subheading here",
+    "body": "2 Here is the body of my cool blog post. ",
+    "author": "Sal the Arbitratium"
+  },
+  {
+    "title": "Blog Post Title 3",
+    "description": "3 Cool subheading here",
+    "body": "3 Here is the body of my cool blog post. ",
+    "author": "Lernantino"
+  }
+]

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Cool Technology Blog - The Tech Blog Y'all</title>
+  
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+
+<body>
+  <div class="flex-column justify-space-around">
+    <header class="">
+      <h1 class="display-flex w-100 justify-center align-center p-2 mt-4">
+        <span role="img">📠🖨💾</span>
+        <a href="/">&nbsp;&nbsp;Tech Blog Y'all!&nbsp;&nbsp;</a>
+         <span role="img">💽📟📻</span>
+      </h1>
+      <div class="display-flex w-100 justify-center p-2">
+        <nav class="display-flex align-center p-2">
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+          <a href="/profile">profile</a> |
+          <button class="no-button" id="logout">logout</button>
+          {{else}}
+          <a href="/login">login</a>
+          {{/if}}
+        </nav>
+      </div>
+    </header>
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
