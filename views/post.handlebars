@@ -6,13 +6,39 @@
       <a href="/post/{{post.id}}">{{post.title}}</a>
     </h2>
     
-    <p>Created by {{post.author}} </p>
+    <p>Created by {{post.author}} on {{format_date post.date_created}}</p>
   </div>
   <div class="col-md-7">
     <h4>
       {{post.description}}
     </h4>
     <p>Body: {{post.body}}</p>
-  
+    <div id="comments-container">
+      {{for}}
+    </div>
+      {{#each post.comments as |comment|}}
+        <div style="background-color:#999; border: solid 1px #222;" class="mt-2 mb-1">
+          <span style="text-decoration:underline;">by {{comment.author}} {{format_date comment.date_created}}</span>
+          <p>{{comment.body}}</p>
+        </div>
+      {{/each}}
+      {{#if logged_in}}
+          <form class="form new-comment-form">
+            <div class="form-group">
+              <label for="comment-meta">by {{user_name}}</label>
+            </div>
+            <div class="form-group">
+              <label for="comment-body">Comment:</label>
+              <input type="hidden" id="post-id" value="{{post.id}}" />
+              <textarea class="form-input" id="comment-body" name="comment-body"></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Comment</button>
+            </div>
+          </form>
+        <script src="/js/comment.js"></script>
+      {{else}}
+        <a href="/login">login to comment</a>  
+      {{/if}}
   </div>
 </div>

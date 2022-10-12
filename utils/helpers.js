@@ -1,3 +1,4 @@
+const moment = require('moment');
 module.exports = {
   get_emoji: () => {
     const randomNum = Math.random();
@@ -14,6 +15,10 @@ module.exports = {
   trim_string: (stringToTrim)=>{
     let newString = stringToTrim.substring(0,170);
     return newString;
+  },
+  format_date: (dateToFormat)=>{
+    let newDate = moment(dateToFormat).format('M-D-YYYY');
+    return newDate;
   },
 
   

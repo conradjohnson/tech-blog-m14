@@ -2,17 +2,29 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
+  console.log('new user attempt! name:' + req.body.name);
   try {
-    const userData = await User.create(req.body);
+    
+    const newUser = await User.create(req.body);
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
+    // if (!userData) {
+    //   console.log("couldn't create");
+    //   res.status(400)
+    //   .json({message:"didn't create"});
+    //   return;
+    // }
+    // req.session.save(() => {  
+    //   req.session.user_id = userData.id;
+    //   req.session.logged_in = true;
+    // });
+    
+    res.status(200).json(newUser);
+    
+    
   } catch (err) {
-    res.status(400).json(err);
+    console.log("bottom error");
+    console.log(err);
+    res.status(400).json(err.message);
   }
 });
 
@@ -37,6 +49,7 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
+      req.session.user_name = userData.name;
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       
