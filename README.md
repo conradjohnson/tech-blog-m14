@@ -9,6 +9,7 @@
 
 A tech blog application using express and a littany of other technologies to have database backend supported API services that serve our webapp pages and functions.  Project is using the MVC frametwork using expressjs, sequelize,  express router (for  controllers) , mysql database and handlebars views. 
 
+Users are able to signup for an account and start blogging.  Blog post owners can edit their posts and moderate their post comments from their profile dashboard.
 
 
 ## Table of Contents
