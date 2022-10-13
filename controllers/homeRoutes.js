@@ -32,14 +32,13 @@ router.get('/post/:id',  async (req, res) => {
       const postData = await Post.findByPk(req.params.id, {
         include:[{model: Comment}]
       });
+    
       const post = postData.get({ plain: true });
       const user_name = req.session.user_name;
-     
-      console.log(post);
-      //const comment = commentData.get({ plain: true});
-      //console.log("here is the comment" + comment);
-    
-      res.render('post', {post, user_name, logged_in: req.session.logged_in});
+      const user_id = req.session.user_id;
+      const is_post_author = (user_id === post.user_id);
+      
+      res.render('post', { post, user_name, is_post_author, logged_in: req.session.logged_in});
     } catch (err) {
       console.log(err);
       res.status(500).json(err.message);

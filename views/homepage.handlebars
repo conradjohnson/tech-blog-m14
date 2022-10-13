@@ -1,19 +1,18 @@
 <!-- Loop over each object in the projects array -->
 {{#each posts as |post| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
+<div class="row mb-4 w-100 project justify-center align-center">
+  <div class="col-md-12 justify-center w-100">
     <h2>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
       {{{get_emoji}}}
       <a href="/post/{{post.id}}">{{post.title}}</a>
     </h2>
      <p>by {{post.author}} on {{format_date post.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <h4>
+     <h5>
      <a href="/post/{{post.id}}"> {{post.description}}</a>
-    </h4>
+    </h5>
     <p>{{trim_string post.body}}<a href="/post/{{post.id}}">...</a></p>
   </div>
+ 
 </div>
 {{/each}}
