@@ -3,10 +3,7 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-// we can send an array of functions to check various things.  In this case,
-// we're only sending one function 'withAuth' to use when getting the '/' path in our 
-// webapp.  'withAuth' is checking to see if the req.session.logged_in is set to true. 
-// if it is set to true, it allows the request to proceed to our async function. 
+//homepage route
 router.get('/',  async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -26,7 +23,7 @@ router.get('/',  async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
+// get blog post
 router.get('/post/:id',  async (req, res) => {
     try {
       const postData = await Post.findByPk(req.params.id, {
@@ -58,7 +55,7 @@ router.get('/post/:id',  async (req, res) => {
     }
   });
 
-// Use withAuth middleware to prevent access to route
+// get profile page.  checks for authentication
 router.get('/profile', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
@@ -91,7 +88,7 @@ router.get('/profile', withAuth, async (req, res) => {
   });
 
 
-  
+// login page route.
 router.get('/login', (req, res) => {
   // if user is already logged in, send them back to homepage.
   if (req.session.logged_in) {

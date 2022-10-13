@@ -1,8 +1,10 @@
+// function to help us convert line breaks in text entry to '<br/>' for db text storage.
 function nl2br (str) {   
   return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ '<br />' +'$2');
 }
 
-const newFormHandler = async (event) => {
+// when a blog post is edited, and then submitted, this will repost that blog post to our API
+const editPostHandler = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector('#post-title').value.trim();
@@ -28,8 +30,9 @@ const newFormHandler = async (event) => {
   }
 };
 
+// event listener for editing post submission.
 document
   .querySelector('.edit-post-form')
-  .addEventListener('submit', newFormHandler);
+  .addEventListener('submit', editPostHandler);
 
 

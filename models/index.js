@@ -2,7 +2,7 @@ const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
 
-
+// database relationships mapping 1:M relationships with their corresponding foreign key.
 User.hasMany(Post, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'

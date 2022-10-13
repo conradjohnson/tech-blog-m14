@@ -1,3 +1,5 @@
+
+// event handler for logging out.  Will send this information to our API.
 const logout = async () => {
   const response = await fetch('/api/users/logout', {
     method: 'POST',
@@ -11,4 +13,5 @@ const logout = async () => {
   }
 };
 
+// event listener for logout click
 document.querySelector('#logout').addEventListener('click', logout);

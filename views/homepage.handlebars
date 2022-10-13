@@ -1,3 +1,4 @@
+<!-- homepage content-->
 <!-- Loop over each object in the projects array -->
 {{#each posts as |post| }}
 <div class="row mb-4 w-100 project justify-center align-center">
@@ -11,7 +12,7 @@
      <h5>
      <a href="/post/{{post.id}}"> {{post.description}}</a>
     </h5>
-    <p>{{trim_string post.body}}<a href="/post/{{post.id}}">...</a></p>
+    <p>{{{trim_string post.body}}}<a href="/post/{{post.id}}">...</a></p>
   </div>
  
 </div>

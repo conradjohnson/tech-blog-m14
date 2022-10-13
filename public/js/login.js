@@ -1,3 +1,5 @@
+
+// login form event handler.  sends login information to our API.
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -23,6 +25,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
+// signup form event handler.  Sends new user information to our API.
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
@@ -46,10 +49,12 @@ const signupFormHandler = async (event) => {
   }
 };
 
+// event listener for login form
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
 
+// event listener for signup form.
 document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
