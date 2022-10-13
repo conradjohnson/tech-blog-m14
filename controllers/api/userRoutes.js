@@ -5,10 +5,16 @@ const { User } = require('../../models');
 router.post('/', async (req, res) => {
   try {
     
-    const newUser = await User.create(req.body);
-
-    res.status(200).json(newUser);
-    
+    const newUserData = await User.create(req.body);
+    const newUser = newUserData.get({ plain: true });
+    console.log(newUser);
+    // create session with values that we will use later: user_name, user id, and logged_in flag
+    req.session.save(() => {
+      req.session.user_name = req.body.name;
+      req.session.user_id = newUser.id;
+      req.session.logged_in = true;
+    res.status(200).json(newUserData);
+    });
     
   } catch (err) {
     console.log("bottom error");
