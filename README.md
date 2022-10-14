@@ -1,6 +1,6 @@
 
  [![Github All Releases](https://img.shields.io/github/downloads/conradjohnson/tech-blog-m14/total.svg)]()
- [![GitHub version](https://badge.fury.io/gh/conradjohnson%2Ftech-blog-m14.svg)](https://github.com/Naereen/tech-blog-m14)
+ [![GitHub version](https://badge.fury.io/gh/conradjohnson%2Ftech-blog-m14.svg)](https://github.com/conradjohnson/tech-blog-m14)
 
 
 # Tech Blog using MVC Framework
