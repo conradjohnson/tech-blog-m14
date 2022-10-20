@@ -34,7 +34,7 @@ router.get('/post/:id',  async (req, res) => {
       const user_name = req.session.user_name;
       const user_id = req.session.user_id;
       const is_post_author = (user_id === post.user_id);
-      
+            
       res.render('post', { post, user_name, is_post_author, logged_in: req.session.logged_in});
     } catch (err) {
       console.log(err);
